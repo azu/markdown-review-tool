@@ -1,0 +1,105 @@
+{
+  "directories": {
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "markdown-review-tool",
+  "version": "1.0.0",
+  "description": "Markdown review tool",
+  "main": "lib/markdown-review-tool.js",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console": "warn",
+      "quotes": [
+        "error",
+        "double"
+      ]
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "test": "mocha test/",
+    "prepublish": "npm run --if-present build",
+    "start": "npm-run-all clean --parallel watch:css server",
+    "server": "cross-env NODE_ENV=development webpack-dev-server -d --hot --content-base ./public --open",
+    "build:js": "cross-env NODE_ENV=production webpack --progress -p",
+    "build:css": "postcss --config postcss.config.js",
+    "build": "npm-run-all clean --parallel build:*",
+    "watch:js": "cross-env NODE_ENV=development webpack -d --watch",
+    "watch:css": "chokidar --initial 'src/**/*.css' -c 'postcss --config postcss.config.js'",
+    "watch": "npm-run-all clean --parallel watch:*",
+    "clean": "rimraf public/build && mkdirp public/build"
+  },
+  "keywords": [
+    "markdown",
+    "review"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/markdown-review-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/azu/markdown-review-tool/issues"
+  },
+  "homepage": "https://github.com/azu/markdown-review-tool",
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "babel-cli": "^6.22.2",
+    "babel-loader": "^6.2.10",
+    "babel-preset-jsdoc-to-assert": "^4.0.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "chokidar-cli": "^1.2.0",
+    "cross-env": "^3.1.4",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "json-loader": "^0.5.4",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.1",
+    "postcss-calc": "^5.3.1",
+    "postcss-cli": "^2.6.0",
+    "postcss-custom-media": "^5.0.1",
+    "postcss-custom-properties": "^5.0.2",
+    "postcss-easy-import": "^2.0.0",
+    "postcss-reporter": "^3.0.0",
+    "power-assert": "^1.4.2",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "annotator": "2.0.0-alpha.3",
+    "hast-util-sanitize": "^1.1.0",
+    "hast-util-to-html": "file:///Users/azu/.ghq/github.com/syntax-tree/hast-util-to-html",
+    "mdast-util-to-hast": "^2.2.0",
+    "prismjs": "^1.6.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "remark": "^6.2.0",
+    "xtend": "^4.0.1"
+  }
+}
