@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import localStoragePlugin from "./annotator/plugin/localStorage-plugin";
-import {onChange, loadAnnotations} from "./annotator/plugin/annotation-storage";
+import {onChange} from "./annotator/plugin/annotation-storage";
 import listenClipboard from "./clipboard/listen-clipboard";
 import {setupContentDnD, onChangeContent} from "./content-uploader/content-uploader";
 const annotator = require("annotator");
