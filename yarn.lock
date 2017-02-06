@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@alrra/travis-scripts@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@alrra/travis-scripts/-/travis-scripts-3.0.1.tgz#45d5b9357317b6cc5553dfd99931843ae0b0e53a"
+
 "@azu/hast-util-to-html@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@azu/hast-util-to-html/-/hast-util-to-html-3.1.0.tgz#6f62b631b4c89e4ced962652b776a260917002c4"
