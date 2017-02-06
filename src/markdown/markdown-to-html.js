@@ -1,6 +1,6 @@
 const xtend = require("xtend");
 const toHAST = require("mdast-util-to-hast");
-const toHTML = require("hast-util-to-html");
+const toHTML = require("@azu/hast-util-to-html");
 const sanitize = require("hast-util-sanitize");
 
 module.exports = function plugin(processor, options) {
