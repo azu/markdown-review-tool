@@ -5,33 +5,53 @@ export default function entryPoint() {
     return {
         start(app) {
             const annotations = loadAnnotations();
-            console.log(annotations);
-            // load exist annotations
-            app.runHook("annotationsLoaded", [annotations]);
-        },
-        annotationCreated(annotation) {
-            console.log("The annotation: %o has just been created!", annotation);
-            const annotations = loadAnnotations();
-            saveAnnotations(annotations.concat(annotation));
-        },
-        annotationUpdated(annotation) {
-            console.log("The annotation: %o has just been updated!", annotation);
-        },
-        annotationDeleted(annotation) {
-            console.log("The annotation: %o has just been deleted!", annotation);
-        },
-        query() {
-            return Promise.resolve().then(() => {
-                    const annotations = loadAnnotations();
-                    const highlightAnnotations = annotations.filter(annotation => {
-                        console.log("annotation", annotation);
-                        return annotation._local.highlights.length > 0;
-                    });
-                    return {results: highlightAnnotations};
+            const currentAnnotations = annotations.filter(annotation => {
+                const currentURL = location.href;
+                return annotation.uri === currentURL;
             });
+            // load exist annotations
+            app.runHook("annotationsLoaded", [currentAnnotations]);
+        },
+        create(annotation) {
+            const annotations = loadAnnotations();
+            annotation.id = annotations.length; // increment
+            annotations.push(annotation);
+            saveAnnotations(annotations);
+            return annotation;
+        },
+        update(updatedAnnotation) {
+            const annotations = loadAnnotations();
+            const index = annotations.findIndex(annotation => {
+                return updatedAnnotation.id === annotation;
+            });
+            annotations[index] = updatedAnnotation;
+            saveAnnotations(annotations);
+            return updatedAnnotation;
+        },
+        delete(deletedAnnotation) {
+            console.log(deletedAnnotation);
+            const annotations = loadAnnotations();
+            const withoutAnnotations = annotations.filter(annotation => {
+                return deletedAnnotation.id !== annotation.id;
+            });
+            saveAnnotations(withoutAnnotations);
+            return deletedAnnotation;
+        },
+        query(queryObject) {
+            if (!(queryObject && queryObject.ids)) {
+                const annotations = loadAnnotations();
+                return {results: annotations};
+            } else {
+                const idList = queryObject.ids;
+                const annotations = loadAnnotations();
+                const highlightAnnotations = annotations.filter(annotation => {
+                    return idList.indexOf(annotation.id) !== -1;
+                });
+                return {results: highlightAnnotations};
+            }
         },
 
-        configure: function(registry) {
+        configure(registry) {
             // need to register
             registry.registerUtility(this, "storage");
         }

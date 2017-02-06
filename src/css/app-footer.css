@@ -1,0 +1,12 @@
+.app-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: #fff;
+    background-color: #00c3a6;
+    padding: 0 1rem;
+}
+
+.app-footer .button {
+    margin-right: 24px;
+}

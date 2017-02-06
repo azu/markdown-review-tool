@@ -1,0 +1,24 @@
+.button.is-outlined {
+    background-color: transparent;
+    color: #fff;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-right: 0.75em;
+    vertical-align: middle;
+    user-select: none;
+    background-color: white;
+    color: #363636;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #fff;
+}

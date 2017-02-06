@@ -6,16 +6,18 @@
     <style>
         body {
             font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-            letter-spacing: 0.01rem;
             font-size: 22px;
             line-height: 1.5;
+            margin: 0;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
         }
 
-        header, article {
-            width: 740px;
+        .markdown-body {
+            max-width: 740px;
             margin: 2em auto;
+            padding-left: 1em;
+            padding-right: 1em;
         }
 
         .highlight {
@@ -26,12 +28,17 @@
 </head>
 
 <body>
-<header>
-    <h1>Annotator demonstration</h1>
-</header>
 <article id="js-article" class="markdown-body">
+    <div class="dropTarget">
 
+    </div>
 </article>
+<footer class="app-footer">
+    <button class="clipboard button is-outlined" id="js-copy-annotations" data-clipboard-text="Placeholder">Copy
+        Annotations
+    </button>
+    <button class="button is-outlined" id="js-clear-annotations">Reset Annotations</button>
+</footer>
 <script src="build/bundle.js"></script>
 </body>
 </html>

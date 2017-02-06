@@ -93,6 +93,9 @@
   },
   "dependencies": {
     "annotator": "2.0.0-alpha.3",
+    "bulma": "^0.3.1",
+    "clipboard": "^1.5.16",
+    "drag-drop": "^2.13.1",
     "hast-util-sanitize": "^1.1.0",
     "hast-util-to-html": "file:///Users/azu/.ghq/github.com/syntax-tree/hast-util-to-html",
     "mdast-util-to-hast": "^2.2.0",
