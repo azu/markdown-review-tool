@@ -12,9 +12,6 @@ export const onChangeContent = (handler) => {
         event.removeAllListeners("change", handler);
     }
 };
-export function updateLocation(filePath) {
-    history.pushState(filePath, "", "?" + filePath);
-}
 export function updateContent(content) {
     const article = document.getElementById("js-article");
     const file = remark().use(html).process(content.split("\n").join("\n"));
@@ -26,7 +23,6 @@ export function setupContentDnD(selector) {
     dragDrop(selector, function(files) {
         // `files` is an Array!
         files.forEach(function(file) {
-            updateLocation(file.name);
             updateContent(file.toString());
         });
     })
