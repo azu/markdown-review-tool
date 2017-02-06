@@ -2,6 +2,25 @@
 # yarn lockfile v1
 
 
+"@azu/hast-util-to-html@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@azu/hast-util-to-html/-/hast-util-to-html-3.1.0.tgz#6f62b631b4c89e4ced962652b776a260917002c4"
+  dependencies:
+    ccount "^1.0.0"
+    comma-separated-tokens "^1.0.1"
+    has "^1.0.1"
+    hast-util-is-element "^1.0.0"
+    hast-util-whitespace "^1.0.0"
+    html-void-elements "^1.0.0"
+    kebab-case "^1.0.0"
+    mdast-util-to-hast "^2.2.0"
+    property-information "^3.1.0"
+    remark "^6.2.0"
+    space-separated-tokens "^1.0.0"
+    stringify-entities "^1.0.1"
+    unist-util-is "^2.0.0"
+    xtend "^4.0.1"
+
 abbrev@1:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
@@ -2543,24 +2562,6 @@ hast-util-sanitize@^1.1.0:
   resolved "https://registry.yarnpkg.com/hast-util-sanitize/-/hast-util-sanitize-1.1.0.tgz#9b4bc3731043fe92e1253a9a4ca7bcc4148d06f2"
   dependencies:
     has "^1.0.1"
-    xtend "^4.0.1"
-
-"hast-util-to-html@file:///Users/azu/.ghq/github.com/syntax-tree/hast-util-to-html":
-  version "3.0.0"
-  dependencies:
-    ccount "^1.0.0"
-    comma-separated-tokens "^1.0.1"
-    has "^1.0.1"
-    hast-util-is-element "^1.0.0"
-    hast-util-whitespace "^1.0.0"
-    html-void-elements "^1.0.0"
-    kebab-case "^1.0.0"
-    mdast-util-to-hast "^2.2.0"
-    property-information "^3.1.0"
-    remark "^6.2.0"
-    space-separated-tokens "^1.0.0"
-    stringify-entities "^1.0.1"
-    unist-util-is "^2.0.0"
     xtend "^4.0.1"
 
 hast-util-whitespace@^1.0.0:
