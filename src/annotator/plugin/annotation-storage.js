@@ -25,8 +25,8 @@ export const saveAnnotations = (annotations) => {
                     startOffset: annotation.ranges[0].startOffset,
                 },
             ],
-            uri: location.href,
-            filePath: getCurrentFilePath()
+            uri: annotation.uri || location.href,
+            filePath: annotation.filePath || getCurrentFilePath()
         };
     };
     const result = annotations.map((annotation, indexAsId) => convert(annotation, indexAsId));
