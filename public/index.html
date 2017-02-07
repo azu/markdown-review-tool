@@ -15,7 +15,7 @@
 
         .markdown-body {
             max-width: 740px;
-            margin: 2em auto;
+            margin: 2em auto 4em auto;
             padding-left: 1em;
             padding-right: 1em;
         }
@@ -34,16 +34,22 @@
     </div>
 </article>
 <footer class="app-footer">
-    <button class="clipboard button is-outlined" id="js-copy-annotations" data-clipboard-text="Placeholder">Copy
+    <span class="app-footer-item annotation-count is-outlined">
+        Annotation Count: <span id="js-annotation-count" class="annotation-count-value"></span>
+    </span>
+    <button class="app-footer-item clipboard button is-outlined" id="js-copy-annotations" data-clipboard-text="Placeholder">Copy
         Annotations
     </button>
-    <button class="button is-outlined" id="js-clear-annotations">Reset Annotations</button>
+    <button class="app-footer-item button is-outlined" id="js-clear-annotations">Reset Annotations</button>
 </footer>
 <script src="build/bundle.js"></script>
 <script>
     // integration
-    function update(content) {
-        window.appEvent.emit("update", unescape(content));
+    function update(content, scroll, filePath) {
+        window.appEvent.emit("update", {
+            content: unescape(content),
+            filePath
+        });
     }
     function attachImage(src, data) {
         document.querySelector(`img[src="${src}"]`).attr('src', data);

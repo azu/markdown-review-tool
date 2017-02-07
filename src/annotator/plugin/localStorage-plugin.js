@@ -1,4 +1,5 @@
 // MIT © 2017 azu
+import {getCurrentFilePath} from "../../content-uploader/content-uploader";
 import {loadAnnotations, saveAnnotations} from "./annotation-storage";
 
 export default function entryPoint() {
@@ -6,15 +7,15 @@ export default function entryPoint() {
         start(app) {
             const annotations = loadAnnotations();
             const currentAnnotations = annotations.filter(annotation => {
-                const currentURL = location.href;
-                return annotation.uri === currentURL;
+                const currentFilePath = getCurrentFilePath();
+                return annotation.filePath === currentFilePath;
             });
             // load exist annotations
             app.runHook("annotationsLoaded", [currentAnnotations]);
         },
         create(annotation) {
             if (!annotation) {
-                reutrn;
+                return;
             }
             const annotations = loadAnnotations();
             annotation.id = annotations.length; // increment

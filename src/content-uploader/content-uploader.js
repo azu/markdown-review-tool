@@ -6,15 +6,24 @@ const prism = require("prismjs");
 const EventEmitter = require("events");
 const event = new EventEmitter();
 let _currentHTML;
+let _currentFilePath;
+/**
+ * current filePath
+ * @returns {string|undefined}
+ */
+export const getCurrentFilePath = () => {
+    return _currentFilePath;
+};
 export const onChangeContent = (handler) => {
     event.on("change", handler);
     return () => {
         event.removeAllListeners("change", handler);
     }
 };
-export function updateHTMLContent(html) {
-    const isChanged = !_currentHTML !== html;
+export function updateHTMLContent(html, filePath) {
+    const isChanged = _currentHTML !== html || _currentFilePath !== filePath;
     _currentHTML = html;
+    _currentFilePath = filePath;
     const article = document.getElementById("js-article");
     article.innerHTML = html;
     prism.highlightAll();

@@ -1,6 +1,6 @@
 // MIT © 2017 azu
 import localStoragePlugin from "./annotator/plugin/localStorage-plugin";
-import {onChange} from "./annotator/plugin/annotation-storage";
+import {onChangeStorage} from "./annotator/plugin/annotation-storage";
 import listenClipboard from "./clipboard/listen-clipboard";
 import {setupContentDnD, updateHTMLContent, onChangeContent, reloadContent} from "./content-uploader/content-uploader";
 const EventEmitter = require("events");
@@ -30,6 +30,7 @@ function xpath(query, context) {
 
 const updateAnnotationsList = (app) => {
     const copyButton = document.getElementById("js-copy-annotations");
+    const annotationCountElement = document.getElementById("js-annotation-count");
     const highlightIds = Array.from(document.querySelectorAll(".annotator-hl"), (element) => {
         return parseInt(element.dataset.annotationId, 10);
     });
@@ -45,8 +46,11 @@ const updateAnnotationsList = (app) => {
         };
     });
     copyButton.dataset.clipboardText = JSON.stringify(results);
+    annotationCountElement.textContent = results.length;
 };
 
+let unlistenStorageListner = () => {
+};
 let currentApp = null;
 // Boot
 setupContentDnD("#js-article");
@@ -69,13 +73,15 @@ clearButton.addEventListener("click", () => {
     reloadContent();
 });
 
+
 onChangeContent(() => {
+    unlistenStorageListner();
     bootAnnotator().then((app) => {
         currentApp = app;
         setTimeout(() => {
             updateAnnotationsList(app);
         }, 300);
-        onChange(() => {
+        unlistenStorageListner = onChangeStorage(() => {
             setTimeout(() => {
                 updateAnnotationsList(app);
             }, 300);
@@ -87,7 +93,7 @@ onChangeContent(() => {
 
 
 const appEvent = new EventEmitter();
-appEvent.on("update", (content) => {
-    updateHTMLContent(content);
+appEvent.on("update", ({content, filePath}) => {
+    updateHTMLContent(content, filePath);
 });
 window.appEvent = appEvent;

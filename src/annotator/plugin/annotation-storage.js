@@ -1,8 +1,9 @@
 // MIT © 2017 azu
+import {getCurrentFilePath} from "../../content-uploader/content-uploader";
 const storageKey = "annotationjs-data";
 const EventEmitter = require("events");
 const event = new EventEmitter();
-export const onChange = (handler) => {
+export const onChangeStorage = (handler) => {
     event.on("change", handler);
     return () => {
         event.removeAllListeners("change", handler);
@@ -25,6 +26,7 @@ export const saveAnnotations = (annotations) => {
                 },
             ],
             uri: location.href,
+            filePath: getCurrentFilePath()
         };
     };
     const result = annotations.map((annotation, indexAsId) => convert(annotation, indexAsId));

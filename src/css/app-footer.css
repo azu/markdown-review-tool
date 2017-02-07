@@ -7,6 +7,39 @@
     padding: 0 1rem;
 }
 
-.app-footer .button {
-    margin-right: 24px;
+.app-footer-item {
+    margin-right: 16px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    vertical-align: middle;
+    user-select: none;
+    background-color: white;
+    color: #363636;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.button.is-outlined, .annotation-count.is-outlined {
+    background-color: transparent;
+    color: #fff;
+}
+
+.button {
+    border: 1px solid #fff;
+}
+
+.annotation-count {
+    border-bottom: 1px solid #fff
+}
+
+.annotation-count-value {
+    padding: 0 0.5em;
 }
