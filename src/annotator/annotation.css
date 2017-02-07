@@ -1,3 +1,3 @@
-.annotator-editor .annotator-item:first-child textarea{
-    font-style: normal;
+.annotator-editor .annotator-item:first-child textarea {
+    font-style: normal !important;
 }

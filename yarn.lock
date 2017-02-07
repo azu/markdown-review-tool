@@ -4552,6 +4552,16 @@ rename-function-calls@~0.1.0:
   dependencies:
     detective "~3.1.0"
 
+render-markdown-with-position@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/render-markdown-with-position/-/render-markdown-with-position-1.0.1.tgz#5608c1bb3c8643efc9d6cd709c4f8fb0483e869f"
+  dependencies:
+    "@azu/hast-util-to-html" "^3.1.0"
+    hast-util-sanitize "^1.1.0"
+    mdast-util-to-hast "^2.2.0"
+    remark "^6.2.0"
+    xtend "^4.0.1"
+
 repeat-element@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/repeat-element/-/repeat-element-1.1.2.tgz#ef089a178d1483baae4d93eb98b4f9e4e11d990a"

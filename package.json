@@ -104,6 +104,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "remark": "^6.2.0",
+    "render-markdown-with-position": "1.0.1",
     "xtend": "^4.0.1"
   }
 }

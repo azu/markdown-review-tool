@@ -2,7 +2,8 @@
 import localStoragePlugin from "./annotator/plugin/localStorage-plugin";
 import {onChange} from "./annotator/plugin/annotation-storage";
 import listenClipboard from "./clipboard/listen-clipboard";
-import {setupContentDnD, onChangeContent} from "./content-uploader/content-uploader";
+import {setupContentDnD, updateHTMLContent, onChangeContent, reloadContent} from "./content-uploader/content-uploader";
+const EventEmitter = require("events");
 const annotator = require("annotator");
 function bootAnnotator() {
     const app = new annotator.App();
@@ -60,10 +61,12 @@ clearButton.addEventListener("click", () => {
         ids: highlightIds
     }).results;
     highlightAnnotations.forEach(annotation => {
-        currentApp.annotations.store.delete(annotation);
+        currentApp.annotations.store.delete({
+            id: annotation.id
+        });
     });
     // reload
-    currentApp.runHook("annotationsLoaded", []);
+    reloadContent();
 });
 
 onChangeContent(() => {
@@ -71,13 +74,20 @@ onChangeContent(() => {
         currentApp = app;
         setTimeout(() => {
             updateAnnotationsList(app);
-        }, 100);
+        }, 300);
         onChange(() => {
             setTimeout(() => {
                 updateAnnotationsList(app);
-            }, 100);
+            }, 300);
         });
     }).catch(error => {
         console.error(error);
     });
 });
+
+
+const appEvent = new EventEmitter();
+appEvent.on("update", (content) => {
+    updateHTMLContent(content);
+});
+window.appEvent = appEvent;

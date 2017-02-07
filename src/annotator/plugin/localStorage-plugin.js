@@ -13,6 +13,9 @@ export default function entryPoint() {
             app.runHook("annotationsLoaded", [currentAnnotations]);
         },
         create(annotation) {
+            if (!annotation) {
+                reutrn;
+            }
             const annotations = loadAnnotations();
             annotation.id = annotations.length; // increment
             annotations.push(annotation);
@@ -20,6 +23,9 @@ export default function entryPoint() {
             return annotation;
         },
         update(updatedAnnotation) {
+            if (!updatedAnnotation) {
+                return;
+            }
             const annotations = loadAnnotations();
             const index = annotations.findIndex(annotation => {
                 return updatedAnnotation.id === annotation;
@@ -29,7 +35,9 @@ export default function entryPoint() {
             return updatedAnnotation;
         },
         delete(deletedAnnotation) {
-            console.log(deletedAnnotation);
+            if (!deletedAnnotation) {
+                return;
+            }
             const annotations = loadAnnotations();
             const withoutAnnotations = annotations.filter(annotation => {
                 return deletedAnnotation.id !== annotation.id;

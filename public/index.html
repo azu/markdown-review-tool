@@ -40,5 +40,14 @@
     <button class="button is-outlined" id="js-clear-annotations">Reset Annotations</button>
 </footer>
 <script src="build/bundle.js"></script>
+<script>
+    // integration
+    function update(content) {
+        window.appEvent.emit("update", unescape(content));
+    }
+    function attachImage(src, data) {
+        document.querySelector(`img[src="${src}"]`).attr('src', data);
+    }
+</script>
 </body>
 </html>
