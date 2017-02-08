@@ -1,16 +1,18 @@
 # markdown-review-to-issue
 
-review to github issue
+Review data to github issue
 
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
 
-    npm install markdown-review-to-issue
+    npm install -g markdown-review-to-issue
 
 ## Usage
 
-- [ ] Write usage instructions
+```
+pbpaste| markdown-review-to-issue --from "/Users/azu/.ghq/github.com/asciidwango/js-primer/" --to "https://github.com/asciidwango/js-primer/tree/master/" | pbcopy
+```
 
 ## Changelog
 
