@@ -62,9 +62,10 @@ Markdownをプレビューしながらコメントをアノテーションとし
 
 プレビューがmarkdown-review-toolになるハックがされたforkです。
 
-### [packges/markdown-review-to-issue](packges/markdown-review-to-issue)
+### [markdown-review-to-issue](https://github.com/azu/markdown-review-to-issue "markdown-review-to-issue")
 
 コピーしたJSONデータを、Issueへコピーしやすいような形式にしたMarkdownを吐けます。
+また、その内容のIssueを作るリンクを開いたりできます。
 
 ## Changelog
 
