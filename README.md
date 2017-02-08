@@ -67,6 +67,12 @@ Markdownをプレビューしながらコメントをアノテーションとし
 コピーしたJSONデータを、Issueへコピーしやすいような形式にしたMarkdownを吐けます。
 また、その内容のIssueを作るリンクを開いたりできます。
 
+## Workflow
+
+1. [azu/cgmd-browser](https://github.com/azu/cgmd-browser "azu/cgmd-browser")でMarkdownの文章を見ながらコメントを付ける
+2. Copy AnnotationsでJSONデータをコピーする
+3. [markdown-review-to-issue](https://github.com/azu/markdown-review-to-issue "markdown-review-to-issue")でアノテーションをIssueとして立てる
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/markdown-review-tool/releases).
