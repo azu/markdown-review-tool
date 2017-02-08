@@ -9,7 +9,16 @@ export const onChangeStorage = (handler) => {
         event.removeAllListeners("change", handler);
     }
 };
-
+/**
+ * @typedef {object} AnnotationData
+ * @property {string} id
+ * @property {string} text
+ * @property {string} quote
+ * @property {{end: number, endOffset: number, start: number, startOffset: number}} ranges
+ * @property {string} annotator_schema_version
+ * @property {string} uri
+ * @property {string} filePath
+ */
 export const saveAnnotations = (annotations) => {
     const convert = function(annotation, id) {
         return {
