@@ -24,7 +24,8 @@ describe("reviewToIssue", () => {
             fromPath: "/Users/azu/.ghq/github.com/azu/markdown-review-tool/packges/markdown-review-to-issue/test/fixtures/",
             toPath: "https://github.com/asciidwango/js-primer/blob/master/source/basic/array/"
         });
-        assert.deepEqual(content, `> 配列はJavaScriptの中でもよく使われるオブジェクトです。
+        assert.deepEqual(content, `> この章では、配列の基本的な操作と配列を扱う場合においてのパターンについて学びます。
+> 配列はJavaScriptの中でもよく使われるオブジェクトです。
 > -- https://github.com/asciidwango/js-primer/blob/master/source/basic/array/README.md
 
 ----
