@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "get-stdin": "^5.0.1",
-    "meow": "^3.7.0"
+    "meow": "^3.7.0",
+    "open": "^0.0.5"
   }
 }

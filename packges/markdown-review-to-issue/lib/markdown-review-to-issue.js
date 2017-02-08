@@ -38,11 +38,6 @@
  * @property {string} filePath
  */
 const fs = require("fs");
-
-const Options = {
-    fromPath: "",
-    toPath: ""
-};
 /**
  * @param {MarkdownReviewData} markdownReviewData
  * @param {Object} options
