@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Annotator demo</title>
+    <style>
+        body {
+            font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+            font-size: 22px;
+            line-height: 1.5;
+            margin: 0;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .markdown-body {
+            max-width: 740px;
+            margin: 2em auto 4em auto;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        .highlight {
+            background: rgba(255, 10, 10, 0.3);
+        }
+    </style>
+    <link rel="stylesheet" href="./build/bundle.css"/>
+</head>
+
+<body>
+<article id="js-article" class="markdown-body">
+    <div class="dropTarget">
+
+    </div>
+</article>
+<footer class="app-footer">
+    <span class="app-footer-item annotation-count is-outlined">
+        Annotation Count: <span id="js-annotation-count" class="annotation-count-value"></span>
+    </span>
+    <button class="app-footer-item clipboard button is-outlined" id="js-copy-annotations" data-clipboard-text="Placeholder">Copy
+        Annotations
+    </button>
+    <button class="app-footer-item button is-outlined" id="js-clear-annotations">Reset Annotations</button>
+</footer>
+<script src="build/bundle.js"></script>
+<script>
+    // integration
+    function update(content, scroll, filePath) {
+        window.appEvent.emit("update", {
+            content: unescape(content),
+            filePath
+        });
+    }
+    function attachImage(src, data) {
+        document.querySelector(`img[src="${src}"]`).attr('src', data);
+    }
+</script>
+</body>
+</html>
