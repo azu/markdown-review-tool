@@ -10,9 +10,21 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
-```
-pbpaste| markdown-review-to-issue --from "/Users/azu/.ghq/github.com/asciidwango/js-primer/" --to "https://github.com/asciidwango/js-primer/tree/master/" | pbcopy
-```
+
+    Usage
+      $ pbpaste | markdown-review-to-issue --from Path --to baseURL
+
+    Options
+      --from  Want to replace path
+      --to    Want to replaced URL
+      --repo  user/repo
+      --open  Open New issue link with --repo
+
+    Examples
+      $ pbpaste | markdown-review-to-issue --from "/path/to/fixtures/" --to baseURL "https://github.com/example/exmple/blob/master/fixtures/"
+      
+      $ pbpaste | markdown-review-to-issue --from "/path/to/fixtures/" --to baseURL "https://github.com/example/exmple/blob/master/fixtures/" --repo "asciidwango/js-primer" --open
+
 
 ## Changelog
 
