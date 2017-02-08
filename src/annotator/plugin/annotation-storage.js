@@ -14,7 +14,6 @@ export const saveAnnotations = (annotations) => {
     const convert = function(annotation, id) {
         return {
             id,
-            annotator_schema_version: "v1.0",
             text: annotation.text,
             quote: annotation.quote,
             ranges: [
@@ -25,6 +24,8 @@ export const saveAnnotations = (annotations) => {
                     startOffset: annotation.ranges[0].startOffset,
                 },
             ],
+            // extra
+            annotator_schema_version: "v1.0",
             uri: annotation.uri || location.href,
             filePath: annotation.filePath || getCurrentFilePath()
         };
