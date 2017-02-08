@@ -1,0 +1,41 @@
+{
+  "directories": {
+    "test": "test"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "name": "markdown-review-to-issue",
+  "version": "1.0.0",
+  "description": "review to github issue",
+  "main": "lib/markdown-review-to-issue.js",
+  "bin": {
+    "markdown-review-to-issue": "./bin/cmd.js"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "reivew",
+    "tool"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/packges/markdown-review-to-issue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/packges/markdown-review-to-issue/issues"
+  },
+  "homepage": "https://github.com/packges/markdown-review-to-issue",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "get-stdin": "^5.0.1",
+    "meow": "^3.7.0"
+  }
+}
