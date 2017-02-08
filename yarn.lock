@@ -1223,12 +1223,20 @@ cli-width@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.1.0.tgz#b234ca209b29ef66fc518d9b98d5847b00edf00a"
 
-clipboard@^1.5.16, clipboard@^1.5.5:
+clipboard@^1.5.5:
   version "1.5.16"
   resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-1.5.16.tgz#916d5e739b0064be61b0b48a535731ecaef3d367"
   dependencies:
     good-listener "^1.2.0"
     select "^1.0.6"
+    tiny-emitter "^1.0.0"
+
+clipboard@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-1.6.0.tgz#e308641d10b1d70306be881ae8997ee71bcc1534"
+  dependencies:
+    good-listener "^1.2.0"
+    select "^1.1.2"
     tiny-emitter "^1.0.0"
 
 cliui@^2.1.0:
@@ -1729,9 +1737,9 @@ dot-parts@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/dot-parts/-/dot-parts-1.0.1.tgz#884bd7bcfc3082ffad2fe5db53e494d8f3e0743f"
 
-drag-drop@^2.13.1:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/drag-drop/-/drag-drop-2.13.1.tgz#2fceda227f6289ee6b5b09daec22ed3573cb429c"
+drag-drop@^2.13.2:
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/drag-drop/-/drag-drop-2.13.2.tgz#a01ff4459123f5ae0a8c8bd9bb38c625ccb81550"
   dependencies:
     blob-to-buffer "^1.0.2"
     flatten "^1.0.2"
@@ -4697,6 +4705,10 @@ select-hose@^2.0.0:
 select@^1.0.6:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.0.tgz#a6c520cd9ab919ad81c7d1a273e0452f504dd7a2"
+
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
 
 "semver@2 || 3 || 4 || 5", semver@~5.3.0:
   version "5.3.0"

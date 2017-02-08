@@ -31,19 +31,19 @@ export function updateHTMLContent(html, filePath) {
         event.emit("change");
     }
 }
-export function updateContent(content) {
-    updateHTMLContent(render(content));
+export function updateContent(content, filePath) {
+    updateHTMLContent(render(content), filePath);
 }
 export function reloadContent() {
     if (_currentHTML) {
-        updateHTMLContent(_currentHTML);
+        updateHTMLContent(_currentHTML, _currentFilePath);
     }
 }
 export function setupContentDnD(selector) {
     dragDrop(selector, function(files) {
         // `files` is an Array!
         files.forEach(function(file) {
-            updateContent(file.toString());
+            updateContent(file.toString(), file.fullPath);
         });
     })
 }
