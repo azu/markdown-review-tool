@@ -80,11 +80,11 @@ onChangeContent(() => {
         currentApp = app;
         setTimeout(() => {
             updateAnnotationsList(app);
-        }, 300);
+        }, 500);
         unlistenStorageListner = onChangeStorage(() => {
             setTimeout(() => {
                 updateAnnotationsList(app);
-            }, 300);
+            }, 500);
         });
     }).catch(error => {
         console.error(error);
